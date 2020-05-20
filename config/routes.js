@@ -6,17 +6,20 @@ const admin = require('../app/controllers/admin')
 const member = require('../app/controllers/member')
 const authentication = require('../app/controllers/authentication')
 const auth = require('../app/middlewares/authorization')
+const home = require('../app/controllers/home')
+const payment = require('../app/controllers/payment')
 
 module.exports = function (app) {
   const apiRoute = new Router()
 
   app.use('/api', apiRoute)
 
-  apiRoute.use('/authentication', authentication)
-  apiRoute.use('/users', auth, user)
-  apiRoute.use('/channels', auth, channel)
-  apiRoute.use('/members', auth, member)
-  apiRoute.use('/admin', admin)
+  // apiRoute.use('/authentication', authentication)
+  // apiRoute.use('/users', auth, user)
+  // apiRoute.use('/channels', auth, channel)
+  // apiRoute.use('/members', auth, member)
+  app.use('/', home)
+  apiRoute.use('/', payment)
 
   // Error handling
   app.use((err, req, res, next) => {

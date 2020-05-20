@@ -11,21 +11,17 @@ app.model = model
 
 module.exports = app
 
-app.get('/', (req, res) => {
-  res.send('Connected')
-})
-
 // Bootstrap routes
 require('./config/express')(app)
 require('./config/passport')(app, model)
 require('./config/routes')(app)
 
-app.mailer = require('./app/mailer')
-app.redis = require('./config/redis')
+// app.mailer = require('./app/mailer')
+// app.redis = require('./config/redis')
 
 function listen() {
   const server = app.listen(port)
-  app.io = require('./config/socket')(server)
+  // app.io = require('./config/socket')(server)
   console.log(`Express app started on port ${port}`)
 }
 
