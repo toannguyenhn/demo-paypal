@@ -1,0 +1,24 @@
+mixin product(product, showButton, child)
+  li.product
+    .img-container.text-align-center
+      img.lazy.cate1943(width='130' height='130' src=`${product.image || '/placeholder.png'}` style='display: block; opacity: 1;')
+    p.pName= product.name
+      span.badge.badge-danger new
+      span.badge.warning
+        | #{product.numberInStock}
+        | left
+    .price.mb-2
+      span.discount
+        | -50%
+        | #{product.price * 1.5}
+        | USD
+      | #{product.price}
+      | USD
+    if showButton
+      div.btn-group.w-100
+        a.btn.btn-primary(href="items/"+product.id) Buy
+        | &nbsp;
+        a.btn.btn-secondary(href="items/edit/"+product.id) Edit
+    else
+      .text-center.mt-4
+        #paypal-button

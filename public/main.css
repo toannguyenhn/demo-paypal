@@ -1,0 +1,54 @@
+.product {
+  list-style-type: none;
+  padding: 16px;
+  border: 1px solid #eee;
+  width: 30%;
+  margin-bottom: 16px;
+}
+
+.img-container img {
+  max-width: 100%;
+  margin: auto;
+}
+
+.pName {
+  margin-bottom: 0;
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.price {
+  font-weight: bold;
+  color: #ff4646;
+  font-size: 16px;
+}
+.badge {
+  font-size: 10px;
+  vertical-align: middle;
+  padding: 4px;
+  margin-left: 4px;
+}
+
+.discount {
+  font-weight: bold;
+  font-size: 12px;
+  margin-right: 8px;
+  text-decoration: line-through;
+}
+
+.btn-group.btn {
+  width: 50%;
+  display: block;
+}
+
+.list-product {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}

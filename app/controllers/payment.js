@@ -10,47 +10,56 @@ const { Router } = require('express')
 const route = new Router()
 
 async function execute(req, res) {
-  const order = await app.model.Payment.findOne({ paymentID: req.body.paymentID })
-  const product = await app.model.Product.findById(order.productId)
-  
-  const paymentID = req.body.paymentID
-  const payerID = req.body.payerID
+  try {
+    const order = await app.model.Payment.findOne({ paymentID: req.body.paymentID })
+    const product = await app.model.Product.findById(order.productId)
 
-  // 3. Call /v1/payments/payment/PAY-XXX/execute to finalize the payment.
-  request.post(
-    PAYPAL_API + '/v1/payments/payment/' + paymentID + '/execute',
-    {
-      auth:
+    const paymentID = req.body.paymentID
+    const payerID = req.body.payerID
+
+    // 3. Call /v1/payments/payment/PAY-XXX/execute to finalize the payment.
+    request.post(
+      PAYPAL_API + '/v1/payments/payment/' + paymentID + '/execute',
       {
-        user: CLIENT,
-        pass: SECRET
-      },
-      body:
-      {
-        payer_id: payerID,
-        transactions: [
-          {
-            amount:
-            {
-              total: order.price,
-              currency: 'USD'
-            }
-          }]
-      },
-      json: true
-    },
-    async (err, response) => {
-      if (err) {
-        console.error(err);
-        return res.sendStatus(500);
-      }
-      await product.update({ numberInStock: product.numberInStock - 1 })
-      // 4. Return a success response to the client
-      res.json(
+        auth:
         {
+          user: CLIENT,
+          pass: SECRET
+        },
+        body:
+        {
+          payer_id: payerID,
+          transactions: [
+            {
+              amount:
+              {
+                total: order.price,
+                currency: 'USD'
+              }
+            }]
+        },
+        json: true
+      },
+      async (err, response) => {
+        if (err) {
+          console.error(err);
+          return res.sendStatus(500);
+        }
+        try {
+          await product.update({ numberInStock: product.numberInStock - 1 })
+        } catch (e) {
+          res.sendStatus(500);
+          console.error(e)
+        }
+        // 4. Return a success response to the client
+        res.json({
           status: 'success'
         });
-    });
+      });
+  } catch (e) {
+    res.sendStatus(500);
+    console.error(e)
+  }
 }
 
 async function index(req, res) {
@@ -105,22 +114,22 @@ async function index(req, res) {
 
       // 3. Return the payment ID to the client
       res.json({
-        body: response.body,
+        // body: response.body,
         id: response.body.id,
       });
     });
 }
 
 async function products(req, res) {
-  const { name, price } = req.body
-  await app.model.Product.create({ name, price })
+  const { name, price, image } = req.body
+  await app.model.Product.create({ name, price, image })
   res.redirect('/')
 }
 
 async function update(req, res) {
-  const { name, price } = req.body
+  const { name, price, image } = req.body
   const product = await app.model.Product.findById(req.params.id)
-  await product.update({ name, price })
+  await product.update({ name, price, image })
   res.redirect('/')
 }
 
