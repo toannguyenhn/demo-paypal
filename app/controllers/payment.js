@@ -65,7 +65,7 @@ async function execute(req, res) {
 
 async function index(req, res) {
   const { productId } = req.body
-  const product = productId === 'sample' ? { price: 10 } : await app.model.Product.findById(productId)
+  const product = productId === 'sample' ? { price: 0.10 } : await app.model.Product.findById(productId)
   if (!product) throw new Error(500)
 
   request.post(PAYPAL_API + '/v1/payments/payment',
