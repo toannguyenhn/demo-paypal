@@ -1,10 +1,11 @@
 const request = require('request')
-const app = require('../../server')
-const CLIENT = 'AQhd8zrhRzjR3AzSVsiJNhie2BbfCUgnUTvrdPEySHtFU5z2FLFM5t7WR825yt9dB1BNVQ7ax2W1I3DN'
-const SECRET = 'ELOWl4OcOT8KpJ3-WH2zchV2u1HzMaeQB3uXkwBCSq85_p1YpgTpjvRbw151Inu3MYAT7KVNRdBTmG7u'
-const PAYPAL_API = 'https://api.sandbox.paypal.com'
-
 const { Router } = require('express')
+const app = require('../../server')
+
+const CLIENT = process.env.CLIENT_PAYPAL
+const SECRET = process.env.SECRET_PAYPAL
+const PAYPAL_API = 'https://api.paypal.com'
+
 // const app = require('../../server')
 
 const route = new Router()
@@ -12,7 +13,7 @@ const route = new Router()
 async function execute(req, res) {
   try {
     const order = await app.model.Payment.findOne({ paymentID: req.body.paymentID })
-    const product = await app.model.Product.findById(order.productId)
+    // const product = await app.model.Product.findById(order.productId)
 
     const paymentID = req.body.paymentID
     const payerID = req.body.payerID
@@ -45,12 +46,12 @@ async function execute(req, res) {
           console.error(err);
           return res.sendStatus(500);
         }
-        try {
-          await product.update({ numberInStock: product.numberInStock - 1 })
-        } catch (e) {
-          res.sendStatus(500);
-          console.error(e)
-        }
+        // try {
+        //   await product.update({ numberInStock: product.numberInStock - 1 })
+        // } catch (e) {
+        //   res.sendStatus(500);
+        //   console.error(e)
+        // }
         // 4. Return a success response to the client
         res.json({
           status: 'success'
@@ -64,7 +65,7 @@ async function execute(req, res) {
 
 async function index(req, res) {
   const { productId } = req.body
-  const product = await app.model.Product.findById(productId)
+  const product = productId === 'sample' ? { price: 10 } : await app.model.Product.findById(productId)
   if (!product) throw new Error(500)
 
   request.post(PAYPAL_API + '/v1/payments/payment',

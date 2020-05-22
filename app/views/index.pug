@@ -1,25 +1,425 @@
 doctype html
 head
-  // Required meta tags
   meta(charset='utf-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-  // Bootstrap CSS
-  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' integrity='sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk' crossorigin='anonymous')
-  link(rel='stylesheet' href='/main.css')
+  title Skyhup Software Company- Source Code to sales online
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(name='description' content='')
+  //if ie
+    meta(content='IE=8' http-equiv='X-UA-Compatible')
+  // bootstrap
+  link(href='bootstrap/css/bootstrap.min.css' rel='stylesheet')
+  link(href='bootstrap/css/bootstrap-responsive.min.css' rel='stylesheet')
+  link(href='themes/css/bootstrappage.css' rel='stylesheet')
+  // global styles
+  link(href='themes/css/flexslider.css' rel='stylesheet')
+  link(href='themes/css/main.css' rel='stylesheet')
+  // scripts
+  script(src='themes/js/jquery-1.7.2.min.js')
+  script(src='bootstrap/js/bootstrap.min.js')
+  script(src='themes/js/superfish.js')
+  script(src='themes/js/jquery.scrolltotop.js')
+  //if lt IE 9
+    script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+    script(src='js/respond.min.js')
+#top-bar.container
+  .row
+    .span4
+      form.search_form(method='POST')
+        input.input-block-level.search-query(type='text' placeholder='eg. website sourcecode')
+    .span8
+      .account.pull-right
+        ul.user-menu
+          // <li><a href="#">My Account</a></li>
+          li
+            a(href='cart.html') Your Cart
+          li
+            a(href='checkout.html') Checkout
+          // <li><a href="register.html">Login</a></li>
+#wrapper.container
+  section.navbar.main-menu
+    .navbar-inner.main-menu
+      a.logo.pull-left(href='index.html')
+        img.site_logo(src='themes/images/logo.png' alt='')
+      nav#menu.pull-right
+        ul
+          //
+            <li><a href="./products.html">Woman</a>
+            <ul>
+            <li><a href="./products.html">Lacinia nibh</a></li>
+            <li><a href="./products.html">Eget molestie</a></li>
+            <li><a href="./products.html">Varius purus</a></li>
+            </ul>
+            </li>
+            <li><a href="./products.html">Man</a></li>
+            <li><a href="./products.html">Sport</a>
+            <ul>
+            <li><a href="./products.html">Gifts and Tech</a></li>
+            <li><a href="./products.html">Ties and Hats</a></li>
+            <li><a href="./products.html">Cold Weather</a></li>
+            </ul>
+            </li>
+            <li><a href="./products.html">Hangbag</a></li>
+            <li><a href="./products.html">Best Seller</a></li>
+            <li><a href="./products.html">Top Seller</a></li>
+  section#home-slider.homepage-slider
+    .flexslider
+      ul.slides
+        li
+          img(src='themes/images/carousel/banner-1.jpg' alt='')
+        li
+          img(src='themes/images/carousel/banner-2.jpg' alt='')
+          .intro
+            h1 Big Sales
+            p
+              span Up to 50% Off
+            p
+              span when buy source code of software online
+  section.header_text
+    | As a software outsourcing and development company, established in 2015, we own the source code of many management software and mobile applications. 
+    br
+    | Customers can choose the source code category of the product, we commit that these source codes are owned by Skyhup Software Company and protected by the laws of Vietnam.
+  section.main-content
+    .row
+      .span12
+        .row
+          .span12
+            h4.title
+              span.pull-left
+                span.text
+                  span.line
+                    | Sourcecode 
+                    strong Products
+              span.pull-right
+                a.left.button(href='#myCarousel' data-slide='prev')
+                a.right.button(href='#myCarousel' data-slide='next')
+            #myCarousel.myCarousel.carousel.slide
+              .carousel-inner
+                .active.item
+                  ul.thumbnails
+                    li.span3
+                      .product-box
+                        span.sale_tag
+                        p
+                          a(href='product_detail.html')
+                            img(src='themes/images/ladies/1.jpg' alt='')
+                        a.title(href='product_detail.html') Business Processing Management
+                        br
+                        // <a href="products.html" class="category">Group Enterprise</a>
+                        a.category Group Enterprise
+                        p.price $10
+                        .paypal-button
+                    li.span3
+                      .product-box
+                        span.sale_tag
+                        p
+                          a(href='product_detail.html')
+                            img(src='themes/images/ladies/2.jpg' alt='')
+                        a.title(href='product_detail.html') Plat-Form Block Chain
+                        br
+                        // <a href="products.html" class="category">Real-Estate</a>
+                        a.category Block-Chain
+                        p.price $10
+                        .paypal-button
+                    li.span3
+                      .product-box
+                        p
+                          a(href='product_detail.html')
+                            img(src='themes/images/ladies/3.jpg' alt='')
+                        a.title(href='product_detail.html') Website
+                        br
+                        // <a href="products.html" class="category">for Beauty</a>
+                        a.category for Beauty
+                        p.price $10
+                        .paypal-button
+                    li.span3
+                      .product-box
+                        p
+                          a(href='product_detail.html')
+                            img(src='themes/images/ladies/4.jpg' alt='')
+                        a.title(href='product_detail.html') Website
+                        br
+                        // <a href="products.html" class="category">for Industry Machine</a>
+                        a.category for Industry Machine
+                        p.price $10
+                        .paypal-button
+                //
+                  <div class="item">
+                  <ul class="thumbnails">
+                  <li class="span3">
+                  <div class="product-box">
+                  <p><a href="product_detail.html"><img src="themes/images/ladies/5.jpg" alt="" /></a></p>
+                  <a href="product_detail.html" class="title">Cashew Application</a><br/>
+                  <a href="products.html" class="category">Android, iOS</a>
+                  <p class="price">$10</p>
+                  </div>
+                  </li>
+                  <li class="span3">
+                  <div class="product-box">
+                  <p><a href="product_detail.html"><img src="themes/images/ladies/6.jpg" alt="" /></a></p>
+                  <a href="product_detail.html" class="title">CRM Application</a><br/>
+                  <a href="products.html" class="category">Android, iOS</a>
+                  <p class="price">$10</p>
+                  </div>
+                  </li>
+                  <li class="span3">
+                  <div class="product-box">
+                  <p><a href="product_detail.html"><img src="themes/images/ladies/7.jpg" alt="" /></a></p>
+                  <a href="product_detail.html" class="title">Agricultural Extension Electronics</a><br/>
+                  <a href="products.html" class="category">for Students</a>
+                  <p class="price">$10</p>
+                  </div>
+                  </li>
+                  <li class="span3">
+                  <div class="product-box">
+                  <p><a href="product_detail.html"><img src="themes/images/ladies/8.jpg" alt="" /></a></p>
+                  <a href="product_detail.html" class="title">Gym Application</a><br/>
+                  <a href="products.html" class="category">for Gym</a>
+                  <p class="price">$10</p>
+                  </div>
+                  </li>
+                  </ul>
+                  </div>
+        br
+        .row
+          .span12
+            h4.title
+              span.pull-left
+                span.text
+                  span.line
+                    | Latest SourceCode 
+                    strong Products
+              span.pull-right
+                a.left.button(href='#myCarousel-2' data-slide='prev')
+                a.right.button(href='#myCarousel-2' data-slide='next')
+            #myCarousel-2.myCarousel.carousel.slide
+              .carousel-inner
+                .active.item
+                  ul.thumbnails
+                    li.span3
+                      .product-box
+                        span.sale_tag
+                        p
+                          a(href='product_detail.html')
+                            img(src='themes/images/cloth/bootstrap-women-ware1.jpg' alt='')
+                        a.title(href='product_detail.html') Cashew Application
+                        br
+                        // <a href="products.html" class="category">for Beauty</a>
+                        a.category Android, iOS
+                        p.price $10
+                        .paypal-button
+                    li.span3
+                      .product-box
+                        p
+                          a(href='product_detail.html')
+                            img(src='themes/images/cloth/bootstrap-women-ware2.jpg' alt='')
+                        a.title(href='product_detail.html') Gym Application
+                        br
+                        // <a href="products.html" class="category">for GYM</a>
+                        a.category Android, iOS
+                        p.price $10
+                        .paypal-button
+                    li.span3
+                      .product-box
+                        p
+                          a(href='product_detail.html')
+                            img(src='themes/images/cloth/bootstrap-women-ware3.jpg' alt='')
+                        a.title(href='product_detail.html') CRM Application
+                        br
+                        // <a href="products.html" class="category">Education</a>
+                        a.category Android, iOS
+                        p.price $10
+                        .paypal-button
+                    li.span3
+                      .product-box
+                        p
+                          a(href='product_detail.html')
+                            img(src='themes/images/cloth/bootstrap-women-ware4.jpg' alt='')
+                        a.title(href='product_detail.html') Agricultural Electronics
+                        br
+                        // <a href="products.html" class="category">for Training</a>
+                        a.category Android, iOS
+                        p.price $10
+                        .paypal-button
+                //
+                  <div class="item">
+                  <ul class="thumbnails">
+                  <li class="span3">
+                  <div class="product-box">
+                  <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware4.jpg" alt="" /></a></p>
+                  <a href="product_detail.html" class="title">Website</a><br/>
+                  <a href="products.html" class="category">for Cosmetic</a>
+                  <p class="price">$10</p>
+                  </div>
+                  </li>
+                  <li class="span3">
+                  <div class="product-box">
+                  <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware3.jpg" alt="" /></a></p>
+                  <a href="product_detail.html" class="title">Website</a><br/>
+                  <a href="products.html" class="category">Food</a>
+                  <p class="price">$10</p>
+                  </div>
+                  </li>
+                  <li class="span3">
+                  <div class="product-box">
+                  <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware2.jpg" alt="" /></a></p>
+                  <a href="product_detail.html" class="title">Platform</a><br/>
+                  <a href="products.html" class="category">for Block-chain</a>
+                  <p class="price">$10</p>
+                  </div>
+                  </li>
+                  <li class="span3">
+                  <div class="product-box">
+                  <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware1.jpg" alt="" /></a></p>
+                  <a href="product_detail.html" class="title">Website</a><br/>
+                  <a href="products.html" class="category">for Cashew</a>
+                  <p class="price">$10</p>
+                  </div>
+                  </li>
+                  </ul>
+                  </div>
+        .row.feature_box
+          .span4
+            .service
+              .responsive
+                img(src='themes/images/feature_img_2.png' alt='')
+                h4
+                  | MODERN 
+                  strong DESIGN
+                p Design can be customized according to customer needs
+          .span4
+            .service
+              .customize
+                img(src='themes/images/feature_img_1.png' alt='')
+                h4
+                  | FREE 
+                  strong SHIPPING
+                p Free Ship and free implementation
+          .span4
+            .service
+              .support
+                img(src='themes/images/feature_img_3.png' alt='')
+                h4
+                  | 24/7 LIVE 
+                  strong SUPPORT
+                p
+                  | Please help send your question to our email: auhh@skyhup.com.vn or call +84 931 949 188
+  //
+    <section class="our_client">
+    <h4 class="title"><span class="text">Manufactures</span></h4>
+    <div class="row">
+    <div class="span2">
+    <a href="#"><img alt="" src="themes/images/clients/14.png"></a>
+    </div>
+    <div class="span2">
+    <a href="#"><img alt="" src="themes/images/clients/35.png"></a>
+    </div>
+    <div class="span2">
+    <a href="#"><img alt="" src="themes/images/clients/1.png"></a>
+    </div>
+    <div class="span2">
+    <a href="#"><img alt="" src="themes/images/clients/2.png"></a>
+    </div>
+    <div class="span2">
+    <a href="#"><img alt="" src="themes/images/clients/3.png"></a>
+    </div>
+    <div class="span2">
+    <a href="#"><img alt="" src="themes/images/clients/4.png"></a>
+    </div>
+    </div>
+    </section>
+  section#footer-bar
+    .row
+      .span3
+        h4 Navigation
+        ul.nav
+          //
+            <li><a href="./index.html">Homepage</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contac Us</a></li>
+          li
+            a(href='./cart.html') Your Cart
+          // <li><a href="./register.html">Login</a></li>
+      .span4
+        //
+          <h4>My Account</h4>
+          <ul class="nav">
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Order History</a></li>
+          <li><a href="#">Wish List</a></li>
+          <li><a href="#">Newsletter</a></li>
+          </ul>
+      .span5
+        p.logo
+          img.site_logo(src='themes/images/logo.png' alt='')
+        p &copy; 2017 SKYHUP Co, Ltd. All Rights Reserved.
+        br
+        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Head Office: IOT Building, 63 Phan Dang Luu, Hai Chau Dis, Da Nang
+        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;HCM: Floor 1, Packsimex Building, 52 Dong Du, Ben Nghe, Dis 1, HCM
+        p HN: No. 53, 40 Ta Quang Buu, Bach Khoa, Hai Ba Trung Dis, Ha Noi
+        p Hotline: +84931949188
+        p
+          a(href='http://skyhup.com.vn/') Website: www.skyhup.com.vn
+        //
+          <span class="social_icons">
+          <a class="facebook" href="#">Facebook</a>
+          <a class="twitter" href="#">Twitter</a>
+          <a class="skype" href="#">Skype</a>
+          <a class="vimeo" href="#">Vimeo</a>
+          </span>
+  section#copyright
+    span &copy; 2017 SKYHUP Co, Ltd. All Rights Reserved.
+script(src='themes/js/common.js')
+script(src='themes/js/jquery.flexslider-min.js')
+script(type='text/javascript').
+  $(function() {
+    $(document).ready(function() {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        slideshowSpeed: 4000,
+        animationSpeed: 600,
+        controlNav: false,
+        directionNav: true,
+        controlsContainer: ".flex-container" // the container that holds the flexslider
+      });
+    });
+  });
+script(src='https://www.paypalobjects.com/api/checkout.js')
+script.
+  const renderButton = (item) => paypal.Button.render({
+    style: {
+      size: 'small',
+      color: 'gold',
+      shape: 'pill',
+      label: 'checkout',
+      tagline: 'true'
+    },
+    env: 'production', // Or 'production'
+    // Set up the payment:
+    // 1. Add a payment callback
+    payment: function(data, actions) {
+      // 2. Make a request to your server
+      return actions.request.post('/api/create-payment/', { productId: 'sample' })
+        .then(function(res) {
+          // 3. Return res.id from the response
+          return res.id;
+        });
+    },
+    // Execute the payment:
+    // 1. Add an onAuthorize callback
+    onAuthorize: function(data, actions) {
+      // 2. Make a request to your server
+      return actions.request.post('/api/execute-payment/', {
+        paymentID: data.paymentID,
+        payerID:   data.payerID
+      })
+        .then(function(res) {
+          $('#modal').modal('show')
+          // 3. Show the buyer a confirmation message.
+        });
+    }
+  }, item);
 
-include product
-body
-.container
-  h1 Shop
-  a.btn.btn-primary.mb-4(href="/items/create") New product
-  ul.list-product
-    each product, i in products
-      +product(product, true)
-
-
-
-// Optional JavaScript
-// jQuery first, then Popper.js, then Bootstrap JS
-script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
-script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
-script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js' integrity='sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI' crossorigin='anonymous')
+  document.querySelectorAll('.paypal-button')
+    .forEach(item => {
+      renderButton(item)
+    })
