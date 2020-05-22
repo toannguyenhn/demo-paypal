@@ -7,11 +7,6 @@ const schema = new moongose.Schema({
     type: String,
     required: true,
   },
-  numberInStock: {
-    type: Number,
-    required: true,
-    default: 100,
-  },
   price: {
     type: Number,
     required: true,
@@ -19,6 +14,10 @@ const schema = new moongose.Schema({
   image: {
     type: String,
     required: false,
+    default: '',
+  },
+  cat: {
+    type: String,
     default: '',
   },
 }, { timestamps: true })

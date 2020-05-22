@@ -10,8 +10,8 @@ head
 include product
 body
 .container
-  h1 Shop
-  a.btn.btn-primary.mb-4(href="/items/create") New product
+  h1 List
+  //- a.btn.btn-primary.mb-4(href="/items/create") New product
   ul.list-product
     each product, i in products
       +product(product, true)

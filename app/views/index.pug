@@ -27,14 +27,14 @@ head
       form.search_form(method='POST')
         input.input-block-level.search-query(type='text' placeholder='eg. website sourcecode')
     .span8
-      .account.pull-right
-        ul.user-menu
-          // <li><a href="#">My Account</a></li>
-          li
-            a(href='cart.html') Your Cart
-          li
-            a(href='checkout.html') Checkout
-          // <li><a href="register.html">Login</a></li>
+      //- .account.pull-right
+      //-   ul.user-menu
+      //-     // <li><a href="#">My Account</a></li>
+      //-     li
+      //-       a(href='cart.html') Your Cart
+      //-     li
+      //-       a(href='checkout.html') Checkout
+      //-     // <li><a href="register.html">Login</a></li>
 #wrapper.container
   section.navbar.main-menu
     .navbar-inner.main-menu
@@ -96,52 +96,9 @@ head
               .carousel-inner
                 .active.item
                   ul.thumbnails
-                    li.span3
-                      .product-box
-                        span.sale_tag
-                        p
-                          a(href='product_detail.html')
-                            img(src='themes/images/ladies/1.jpg' alt='')
-                        a.title(href='product_detail.html') Business Processing Management
-                        br
-                        // <a href="products.html" class="category">Group Enterprise</a>
-                        a.category Group Enterprise
-                        p.price $10
-                        .paypal-button
-                    li.span3
-                      .product-box
-                        span.sale_tag
-                        p
-                          a(href='product_detail.html')
-                            img(src='themes/images/ladies/2.jpg' alt='')
-                        a.title(href='product_detail.html') Plat-Form Block Chain
-                        br
-                        // <a href="products.html" class="category">Real-Estate</a>
-                        a.category Block-Chain
-                        p.price $10
-                        .paypal-button
-                    li.span3
-                      .product-box
-                        p
-                          a(href='product_detail.html')
-                            img(src='themes/images/ladies/3.jpg' alt='')
-                        a.title(href='product_detail.html') Website
-                        br
-                        // <a href="products.html" class="category">for Beauty</a>
-                        a.category for Beauty
-                        p.price $10
-                        .paypal-button
-                    li.span3
-                      .product-box
-                        p
-                          a(href='product_detail.html')
-                            img(src='themes/images/ladies/4.jpg' alt='')
-                        a.title(href='product_detail.html') Website
-                        br
-                        // <a href="products.html" class="category">for Industry Machine</a>
-                        a.category for Industry Machine
-                        p.price $10
-                        .paypal-button
+                    include product
+                    each product in products.slice(0, 4)
+                      +product(product, true)
                 //
                   <div class="item">
                   <ul class="thumbnails">
@@ -195,51 +152,8 @@ head
               .carousel-inner
                 .active.item
                   ul.thumbnails
-                    li.span3
-                      .product-box
-                        span.sale_tag
-                        p
-                          a(href='product_detail.html')
-                            img(src='themes/images/cloth/bootstrap-women-ware1.jpg' alt='')
-                        a.title(href='product_detail.html') Cashew Application
-                        br
-                        // <a href="products.html" class="category">for Beauty</a>
-                        a.category Android, iOS
-                        p.price $10
-                        .paypal-button
-                    li.span3
-                      .product-box
-                        p
-                          a(href='product_detail.html')
-                            img(src='themes/images/cloth/bootstrap-women-ware2.jpg' alt='')
-                        a.title(href='product_detail.html') Gym Application
-                        br
-                        // <a href="products.html" class="category">for GYM</a>
-                        a.category Android, iOS
-                        p.price $10
-                        .paypal-button
-                    li.span3
-                      .product-box
-                        p
-                          a(href='product_detail.html')
-                            img(src='themes/images/cloth/bootstrap-women-ware3.jpg' alt='')
-                        a.title(href='product_detail.html') CRM Application
-                        br
-                        // <a href="products.html" class="category">Education</a>
-                        a.category Android, iOS
-                        p.price $10
-                        .paypal-button
-                    li.span3
-                      .product-box
-                        p
-                          a(href='product_detail.html')
-                            img(src='themes/images/cloth/bootstrap-women-ware4.jpg' alt='')
-                        a.title(href='product_detail.html') Agricultural Electronics
-                        br
-                        // <a href="products.html" class="category">for Training</a>
-                        a.category Android, iOS
-                        p.price $10
-                        .paypal-button
+                    each product in products.slice(4, 8)
+                      +product(product, true)
                 //
                   <div class="item">
                   <ul class="thumbnails">
@@ -398,7 +312,7 @@ script.
     // 1. Add a payment callback
     payment: function(data, actions) {
       // 2. Make a request to your server
-      return actions.request.post('/api/create-payment/', { productId: 'sample' })
+      return actions.request.post('/api/create-payment/', { productId: item.getAttribute('data-id') })
         .then(function(res) {
           // 3. Return res.id from the response
           return res.id;
